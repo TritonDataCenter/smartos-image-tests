@@ -56,6 +56,15 @@ describe file('/etc/bash/bash_completion.d/pkg') do
   it { should match_md5checksum '056b06078621a401d4f81d3d1f0260fc' }
 end
 
+# See DATASET-837
+# Note here that starting with base 13.3.0, there will be a XAuthLocation 
+# pre-set to the /opt/local/bin/xauth path, in /etc/ssh/sshd_config.
+describe file('/etc/ssh/sshd_config') do
+  it { should be_file }
+  it { should contain "XAuthLocation /opt/local/bin/xauth" }
+end
+
+
 ## Since 13.1.0 
 # See IMAGE-219
 #
