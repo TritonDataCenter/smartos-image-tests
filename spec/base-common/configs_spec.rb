@@ -49,6 +49,14 @@ describe file('/usr/local') do
 end
 
 
+#  See IMAGE-404
+#  rsyslog not built with mysql and pgsql support to prevent package conflicts
+describe command('pkg_info -Q PKG_OPTIONS rsyslog') do
+  it { should return_stdout 'file guardtime libgcrypt solaris uuid' }
+	# with  mysql and pgsql support, return value would be
+	# 'file guardtime libgcrypt mysql pgsql solaris uuid'
+end
+
 # See DATASET-602
 # Bash auto-completion support for pkgin
 describe file('/etc/bash/bash_completion.d/pkg') do
