@@ -12,3 +12,10 @@ base64-13.3.0:
   :base_version: 13.3.0
   :doc_url: http://wiki.joyent.com/jpc2/SmartMachine+Base
 
+percona-13.3.0:
+  :roles:
+    - base-common
+  :name: percona
+  :base_name: bsae64
+  :base_version: 13.3.0
+  :doc_url: http://wiki.joyent.com/jpc2/Joyent+Percona+SmartMachine
