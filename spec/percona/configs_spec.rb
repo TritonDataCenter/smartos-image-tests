@@ -4,7 +4,7 @@ require 'spec_helper'
 
 privateIp = `ipadm show-addr -o addrobj,addr | grep net1 |awk '{print $2}' | cut -d/ -f1`
 
- describe file('/opt/local/etc/my.cnf') do
+describe file('/opt/local/etc/my.cnf') do
    it { should be_file }
    it { should contain "bind-address = " + privateIp }
 end
