@@ -5,6 +5,16 @@ describe command('pkgin -y up') do
   it { should return_exit_status 0 }
 end
 
+
+## Since 13.3.1. See IMAGE-437
+if attr[:base_version].delete('.').to_i >= 1331
+  # wget package now preinstalled (works around the problem where the OS wget wasn't
+  # happy with https URLs)
+  describe package('wget') do
+  it { should be_installed }
+  end
+end
+
 ## Since 13.3.0
 # See IMAGE-340, IMAGE-404
 # rsyslog pre-installed and running out of the box (in place of legacy syslog); has guardtime support built-in

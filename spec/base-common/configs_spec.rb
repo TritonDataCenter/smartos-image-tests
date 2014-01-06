@@ -4,7 +4,19 @@ require 'spec_helper'
 #
 ## Since 13.3.1. See IMAGE-437
 if attr[:base_version].delete('.').to_i >= 1331
-  # Platform regression. /etc/issue should not exist
+  # Platform regression in 13.3.0. default locale was not set to "C"
+  # See DATASET-940.
+  describe file('/etc/default/init') do
+    it { should contain "LANG=C" }
+  end
+  
+  # Platform regression in 13.3.0, /etc/shells was missing
+  # See IMAGE-435
+	describe file('/etc/shells') do
+		it { should be_file }
+	end
+  
+  # Platform regression. /etc/issue should not exist.
   # See IMAGE-433
 	describe command('ls /etc/issue') do
 		its(:stderr) { should match /No such file or directory/ }
