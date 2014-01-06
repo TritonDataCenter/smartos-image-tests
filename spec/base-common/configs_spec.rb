@@ -1,13 +1,36 @@
 require 'spec_helper'
 
-## Version specfiic tests for regressions
+## Version specfiic tests
+#
+## Since 13.3.1. See IMAGE-437
+#
+# Platform regression. /etc/issue should not exist
+# See IMAGE-433
+#
+# This test should run for versions > 13.3.0. 1331 == 13.3.1
+if attr[:base_version].delete('.').to_i >= 1331
+	describe command('ls /etc/issue') do
+		its(:stderr) { should match /No such file or directory/ }
+	end
+end
+
 
 ## Since 13.3.0. See IMAGE-404
+# FIXME
+# Need to inteligently test for pkgsrc version based on attribute
+# e.g. 13.3.x should translate to 2013Q3
+
 
 # Is this really 2013Q3?
 describe file('/opt/local/etc/pkgin/repositories.conf') do
   it { should be_file }
   it { should contain "2013Q3" }
+end
+
+# See DATASET-937
+# datasets should ship with /etc/ipadm/ipadm.conf
+describe file('/etc/ipadm/ipadm.conf') do
+  it { should be_file }
 end
 
 # Refactored SMF support; the likely only visible change is a different layout of SMF files on disk (see /opt/local/lib/svc)
