@@ -93,32 +93,33 @@ end
 #  /etc/rsyslog.conf
 #  /etc/logadm.conf
 # Change default logadm cron schedule to hourly for more granularity (DATASET-735).
+if attr[:base_version].delete('.').to_i >= 1310
+  describe file('/var/log/authlog') do
+  	it { should be_file }
+  end
 
-describe file('/var/log/authlog') do
-	it { should be_file }
-end
+  describe file('/var/log/maillog') do
+    it { should be_file }
+  end
 
-describe file('/var/log/maillog') do
-  it { should be_file }
-end
+  describe file('/etc/syslog.conf') do
+  	it { should be_file }
+    it { should contain "/var/log/authlog" }
+    it { should contain "/var/log/maillog" }
+  end
 
-describe file('/etc/syslog.conf') do
-	it { should be_file }
-  it { should contain "/var/log/authlog" }
-  it { should contain "/var/log/maillog" }
-end
+  describe file('/etc/rsyslog.conf') do
+    it { should be_file }
+    it { should contain  "/var/log/authlog" }
+    it { should contain  "/var/log/maillog" }
+  end
 
-describe file('/etc/rsyslog.conf') do
-  it { should be_file }
-  it { should contain  "/var/log/authlog" }
-  it { should contain  "/var/log/maillog" }
-end
+  describe file('/etc/logadm.conf') do
+    it { should be_file }
+    it { should contain "/var/log/maillog" }
+  end
 
-describe file('/etc/logadm.conf') do
-  it { should be_file }
-  it { should contain "/var/log/maillog" }
-end
-
-describe cron do
-  it { should have_entry('10 * * * * /usr/sbin/logadm').with_user('root') }
+  describe cron do
+    it { should have_entry('10 * * * * /usr/sbin/logadm').with_user('root') }
+  end
 end
