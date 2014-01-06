@@ -8,9 +8,10 @@ end
 ## Since 13.3.0
 # See IMAGE-340, IMAGE-404
 # rsyslog pre-installed and running out of the box (in place of legacy syslog); has guardtime support built-in
-
-describe package('rsyslog') do
+if attr[:base_version].delete('.').to_i >= 1330
+  describe package('rsyslog') do
   it { should be_installed }
+  end
 end
 
 ## Common packages

@@ -4,6 +4,8 @@ require 'spec_helper'
 # See IMAGE-340, IMAGE-404
 # rsyslog pre-installed and running out of the box (in place of legacy syslog); has guardtime support built-in
 
-describe service('rsyslog') do
-  it { should be_running }
+if attr[:base_version].delete('.').to_i >= 1330
+  describe service('rsyslog') do
+    it { should be_running }
+  end
 end
