@@ -16,17 +16,7 @@ end
 
 
 ## Since 13.3.0. See IMAGE-404
-# FIXME
-# Need to inteligently test for pkgsrc version based on attribute
-# e.g. 13.3.x should translate to 2013Q3
-
-
-# Is this really 2013Q3?
-describe file('/opt/local/etc/pkgin/repositories.conf') do
-  it { should be_file }
-  it { should contain "2013Q3" }
-end
-
+#
 # See DATASET-937
 # datasets should ship with /etc/ipadm/ipadm.conf
 describe file('/etc/ipadm/ipadm.conf') do
