@@ -11,7 +11,7 @@ end
 
 ## Version specific checks for node.js
 # Since 13.3.0. See IMAGE-427
-if attr[:base_version].delete('.').to_i == 1330
+if attr[:base_version].delete('.').to_i == 1330 || attr[:base_version].delete('.').to_i == 1331
 	describe package('nodejs-0.10.24') do
   	it { should be_installed }
 	end

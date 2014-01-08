@@ -1,3 +1,4 @@
+# 13.3.1
 base-13.3.1:
   :roles:
     - base-common
@@ -12,6 +13,16 @@ base64-13.3.1:
   :base_version: 13.3.1
   :doc_url: http://wiki.joyent.com/jpc2/SmartMachine+Base
 
+nodejs-13.3.1:
+  :roles:
+    - base-common
+    - nodejs
+  :name: nodejs
+  :base_name: base
+  :base_version: 13.3.1
+  :doc_url: http://wiki.joyent.com/jpc2/Node.JS+Instance
+
+# 13.3.0
 base-13.3.0:
   :roles:
     - base-common
