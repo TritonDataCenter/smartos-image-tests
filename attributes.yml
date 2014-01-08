@@ -43,3 +43,12 @@ hadoop-13.3.0:
   :base_name: base64
   :base_version: 13.3.0
   :doc_url: http://wiki.joyent.com/jpc2/Joyent+Hadoop+SmartMachine
+
+nodejs-13.3.0:
+  :roles:
+    - base-common
+    - nodejs
+  :name: nodejs
+  :base_name: base
+  :base_version: 13.3.0
+  :doc_url: http://wiki.joyent.com/jpc2/Node.JS+Instance
