@@ -30,31 +30,17 @@ standard-13.3.1:
   :base_name: base
   :base_version: 13.3.1
   :doc_url: http://wiki.joyent.com/jpc2/Standard+Instance
+  
+java-13.3.1:
+  :roles:
+    - base-common
+    - java
+  :name: java
+  :base_name: base64
+  :base_version: 13.3.1
+  :doc_url: http://wiki.joyent.com/jpc2/Java+Instance
 
 # 13.3.0
-base-13.3.0:
-  :roles:
-    - base-common
-  :name: base
-  :base_version: 13.3.0
-  :doc_url: http://wiki.joyent.com/jpc2/SmartMachine+Base
-
-base64-13.3.0:
-  :roles:
-    - base-common
-  :name: base64
-  :base_version: 13.3.0
-  :doc_url: http://wiki.joyent.com/jpc2/SmartMachine+Base
-
-percona-13.3.0:
-  :roles:
-    - base-common
-    - percona
-  :name: percona
-  :base_name: base64
-  :base_version: 13.3.0
-  :doc_url: http://wiki.joyent.com/jpc2/Joyent+Percona+SmartMachine
-  
 hadoop-13.3.0:
   :roles:
     - base-common
@@ -63,12 +49,3 @@ hadoop-13.3.0:
   :base_name: base64
   :base_version: 13.3.0
   :doc_url: http://wiki.joyent.com/jpc2/Joyent+Hadoop+SmartMachine
-
-nodejs-13.3.0:
-  :roles:
-    - base-common
-    - nodejs
-  :name: nodejs
-  :base_name: base
-  :base_version: 13.3.0
-  :doc_url: http://wiki.joyent.com/jpc2/Node.JS+Instance
