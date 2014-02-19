@@ -27,7 +27,7 @@ end
 
 
 # Since 13.2.1. See IMAGE-429
-if attr[:base_version].delete('.').to_i == 1330 || attr[:base_version].delete('.').to_i == 1331
+if attr[:base_version].delete('.').to_i == 1320 || attr[:base_version].delete('.').to_i == 1321
 	describe package('mongodb-2.4.6') do
 		it { should be_installed }
 	end
