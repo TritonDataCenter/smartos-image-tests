@@ -40,6 +40,16 @@ java-13.3.1:
   :base_version: 13.3.1
   :doc_url: http://wiki.joyent.com/jpc2/Java+Instance
 
+
+mongodb-13.3.1:
+  :roles:
+    - base-common
+    - mongodb
+  :name: mongodb
+  :base_name: base64
+  :base_version: 13.3.1
+  :doc_url: http://wiki.joyent.com/jpc2/MongoDB+Instance
+
 # 13.3.0
 hadoop-13.3.0:
   :roles:
