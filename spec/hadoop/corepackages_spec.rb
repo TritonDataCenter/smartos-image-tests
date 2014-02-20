@@ -5,9 +5,12 @@ describe command('pkgin -y up') do
   it { should return_exit_status 0 }
 end
 
-## Since 13.3.0
-# See IMAGE-387
-# * Base image is base64-13.3.0 (2013Q3)
+## Since 13.3.1
+# See IMAGE-458
+# * Base image is base64-13.3.1 (2013Q3)
+# * Change java from sun-jdk to openjdk
+# * OpenJDK version is 1.7.25
+# * Npm Manta installed by default
 # * Hadoop version is 1.1.2
 # * Hbase version is 0.94.7
 # * Hcatalog version is 0.5.0
@@ -21,6 +24,11 @@ end
 # * Mahout version is 0.7
 
 ## Common packages
+
+describe package('openjdk7') do
+  it { should be_installed }
+end
+
 
 describe package('hadoop') do
   it { should be_installed }
