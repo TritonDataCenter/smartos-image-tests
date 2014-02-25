@@ -8,9 +8,11 @@ These tests are are based on [Serverspec](http://serverspec.org) "Serverspec.org
 
 To run the tests you will need ruby (1.9.3+ or 2.0.0 should work) and rubygems installed.
 
-Install serverspec with
+Install serverspec with (fails with recent 0.15.3 version at least):
 
-`gem install serverspec`
+    # If necessary uninstall a newer serverspec:
+    #   gem uninstall serverspec
+    gem install serverspec -v 0.10.13
 
 Add the name and attibutes of what you want to test to attributes.yml. Next, edit your `~/.ssh/config` file with the host information of the virtual machines you want to test. The name you chose for _Host_ in `~/.ssh/config should match what you have in attributes.yml. 
 
