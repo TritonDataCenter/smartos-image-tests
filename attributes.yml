@@ -1,16 +1,16 @@
 # 13.4.0
-base-14.4.0:
+base-13.4.0:
   :roles:
     - base-common
   :name: base
-  :base_version: 14.4.0
+  :base_version: 13.4.0
   :doc_url: http://wiki.joyent.com/jpc2/SmartMachine+Base
 
-base64-14.4.0:
+base64-13.4.0:
   :roles:
     - base-common
   :name: base64
-  :base_version: 14.4.0
+  :base_version: 13.4.0
   :doc_url: http://wiki.joyent.com/jpc2/SmartMachine+Base
 
 # 13.3.1
