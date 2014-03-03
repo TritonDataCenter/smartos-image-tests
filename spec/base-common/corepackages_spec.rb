@@ -34,12 +34,15 @@ describe package('nodejs') do
   it { should be_installed }
 end
 
-describe package('sdc-manta') do
-  it { should be_installed }
-end
+# Starting with 13.4.0, sdc-manta and sdc-smartdc are no longer installed by default. IMAGE-460.
+if attr[:base_version].delete('.').to_i < 1340
+	describe package('sdc-manta') do
+  	it { should be_installed }
+	end
 
-describe package('sdc-smartdc') do
-  it { should be_installed }
+	describe package('sdc-smartdc') do
+  	it { should be_installed }
+	end
 end
 
 describe package('guardtime') do
