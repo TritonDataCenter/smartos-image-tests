@@ -24,6 +24,8 @@ if attr[:base_version].delete('.').to_i == 1322
 	end
 end
 
+# Removed MongoDB in 13.4.0. See IMAGE-466
+if attr[:base_version].delete('.').to_i < 1340
 describe package('mongodb') do
   it { should be_installed }
 end
@@ -34,6 +36,7 @@ end
 
 describe package('mms-agent') do
   it { should be_installed }
+end
 end
 
 describe package ('scmgit') do
