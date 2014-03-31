@@ -13,14 +13,14 @@ base64-13.4.0:
   :base_version: 13.4.0
   :doc_url: http://wiki.joyent.com/jpc2/SmartMachine+Base
 
-nodejs-13.4.0:
+standard64-13.4.0:
   :roles:
     - base-common
-    - nodejs
-  :name: nodejs
-  :base_name: base
+    - standard
+  :name: standard64
+  :base_name: base64
   :base_version: 13.4.0
-  :doc_url: http://wiki.joyent.com/jpc2/Node.JS+Instance
+  :doc_url: http://wiki.joyent.com/jpc2/Standard+Instance
 
 elasticsearch-13.4.0:
   :roles:

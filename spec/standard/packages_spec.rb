@@ -29,12 +29,28 @@ describe package('gcc47') do
   it { should be_installed }
 end
 
-describe package('scmgit') do
-  it { should be_installed }
+## Since 13.4.0
+# At some point pkgsrc came to their senses and used a sensible name for git
+if attr[:base_version].delete('.').to_i >= 1400
+  describe package('git') do
+    it { should be_installed }
+  end
+  
+  # Newer version of postgresql in 13.4.0
+  describe package ('postgresql93-server') do
+  	it { should be_installed }
+  end
 end
 
-describe package ('postgresql91-server') do
-	it { should be_installed }
+## 13.3.1 and earlier
+if attr[:base_version].delete('.').to_i <= 1331
+  describe package('scmgit') do
+    it { should be_installed }
+  end
+  
+  describe package ('postgresql91-server') do
+  	it { should be_installed }
+  end
 end
 
 describe package ('python27') do
