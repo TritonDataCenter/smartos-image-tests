@@ -12,12 +12,16 @@ end
 # Need to enable the service first
 describe command('svcadm enable postgresql') do
   it { should return_exit_status 0 }
+	# Test login
+	describe command('PGPASSWORD="$(mdata-get pgsql_pw)" psql -U postgres -c "select version();"') do
+	   it { should return_exit_status 0 }
+	end
 end
 
 # Test login
-describe command('PGPASSWORD="$(mdata-get pgsql_pw)" psql -U postgres -c "select version();"') do
-  it { should return_exit_status 0 }
-end
+#describe command('PGPASSWORD="$(mdata-get pgsql_pw)" psql -U postgres -c "select version();"') do
+#  it { should return_exit_status 0 }
+#end
 
 # disable service
 describe command('svcadm disable postgresql') do
