@@ -5,6 +5,14 @@ describe command('pkgin -y up') do
   it { should return_exit_status 0 }
 end
 
+## For 13.4.1 only. See IMAGE-476
+if attr[:base_version].delete('.').to_i == 1341
+	# OpenSSL was patched to adddres the Heartbleed bug.
+  describe package('openssl-1.0.1fnb1') do
+  it { should be_installed }
+  end
+end
+
 
 ## Since 13.3.1. See IMAGE-437
 if attr[:base_version].delete('.').to_i >= 1331
