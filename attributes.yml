@@ -22,6 +22,15 @@ standard64-13.4.1:
   :base_version: 13.4.1
   :doc_url: http://wiki.joyent.com/jpc2/Standard+Instance
 
+stm-4000L-13.4.1:
+  :roles:
+    - base-common
+    - stingray
+  :name: stm-4000L
+  :base_name: base64
+  :base_version: 13.4.1
+  :doc_url: http://wiki.joyent.com/jpc2/Load+Balancing+with+Riverbed+Stingray
+
 # 13.4.0
 base-13.4.0:
   :roles:
