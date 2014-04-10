@@ -31,6 +31,15 @@ stm-4000L-13.4.1:
   :base_version: 13.4.1
   :doc_url: http://wiki.joyent.com/jpc2/Load+Balancing+with+Riverbed+Stingray
 
+stm-developer-13.4.1:
+  :roles:
+    - base-common
+    - stingray
+  :name: stm-developer
+  :base_name: base64
+  :base_version: 13.4.1
+  :doc_url: http://wiki.joyent.com/jpc2/Load+Balancing+with+Riverbed+Stingray
+
 # 13.4.0
 base-13.4.0:
   :roles:
