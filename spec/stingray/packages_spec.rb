@@ -22,6 +22,6 @@ end
 
 # Check for a respresentative symlink
 describe file('/opt/local/bin/mls') do
-	it { should be_linked_to '/opt/local/lib/node_modules/manta/bin/mls'
+	it { should be_linked_to '/opt/local/lib/node_modules/manta/bin/mls'}
 end
 
