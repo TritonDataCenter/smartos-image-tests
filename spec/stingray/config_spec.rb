@@ -14,7 +14,17 @@ end
 # IMAGE-430 missing directory on stingray images interferes with importing \
 # backups via the webUI
 
-describe file('/opt/local/stingray/zxtm-9.5/.backup/') do
-  it { should be_directory }
+if attr[:name] == "stm-developer"
+	# stm-developer has Stingray 9.6
+  describe file('/opt/local/stingray/zxtm-9.6/.backup/') do
+    it { should be_directory }
+  end
+else
+	# All other 13.4.1 versions have 9.5
+  describe file('/opt/local/stingray/zxtm-9.5/.backup/') do
+    it { should be_directory }
+  end
+  
 end
+
 
