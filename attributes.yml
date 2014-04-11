@@ -40,6 +40,15 @@ stm-developer-13.4.1:
   :base_version: 13.4.1
   :doc_url: http://wiki.joyent.com/jpc2/Load+Balancing+with+Riverbed+Stingray
 
+elasticsearch-13.4.1:
+  :roles:
+    - base-common
+    - elasticsearch
+  :name: elasticsearch
+  :base_name: base64
+  :base_version: 13.4.1
+  :doc_url: http://wiki.joyent.com/jpc2/Elasticsearch+Instance
+
 # 13.4.0
 base-13.4.0:
   :roles:
