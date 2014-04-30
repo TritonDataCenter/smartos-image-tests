@@ -12,3 +12,8 @@ end
 describe command('mongostat -uadmin -p$(mdata-get mongodb_pw) -n1') do
 	it { should return_exit_status 0 }
 end
+
+# Make sure quickbackup-mongodb works
+describe command('quickbackup-mongodb backup') do
+	it { should return_exit_status 0 }
+end
