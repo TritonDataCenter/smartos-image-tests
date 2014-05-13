@@ -17,6 +17,10 @@ describe package('php') do
   it { should be_installed }
 end
 
+describe package('postfix') do
+  it { should be_installed }
+end
+
 describe package('nginx') do
   it { should be_installed }
 end
