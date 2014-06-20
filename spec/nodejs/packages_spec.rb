@@ -9,23 +9,6 @@ describe package('nodejs') do
   it { should be_installed }
 end
 
-## Version specific checks for node.js
-# Since 13.3.0. See IMAGE-427
-if attr[:base_version].delete('.').to_i == 1330 || attr[:base_version].delete('.').to_i == 1331
-	describe package('nodejs-0.10.24') do
-  	it { should be_installed }
-	end
-end
-
-# Since 13.2.2. See IMAGE-388
-if attr[:base_version].delete('.').to_i == 1322
-	describe package('nodejs-0.10.21') do
-  	it { should be_installed }
-	end
-end
-
-# Removed MongoDB in 13.4.0. See IMAGE-466
-if attr[:base_version].delete('.').to_i < 1340
 describe package('mongodb') do
   it { should be_installed }
 end
@@ -37,9 +20,8 @@ end
 describe package('mms-agent') do
   it { should be_installed }
 end
-end
 
-describe package ('scmgit') do
+describe package ('git') do
   it { should be_installed }
 end
 
@@ -49,10 +31,9 @@ end
 
 describe package ('htop') do
   it { should be_installed }
-
 end
 
-describe package ('gcc47') do
+describe package ('build-essential') do
   it { should be_installed }
 end
 
