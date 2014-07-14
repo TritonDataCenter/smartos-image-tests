@@ -53,12 +53,18 @@ if attr[:base_version].delete('.').to_i < 1340
 	end
 end
 
-describe package('guardtime') do
-  it { should be_installed }
+# Guardtime removed in 14.2.0 release
+if attr[:base_version].delete('.').to_i < 1420
+	describe package('guardtime') do
+  	it { should be_installed }
+	end
 end
 
-describe package('duo-unix') do
-  it { should be_installed }
+# duo-unix removed in 14.2.0 release
+if attr[:base_version].delete('.').to_i < 1420
+	describe package('duo-unix') do
+  	it { should be_installed }
+	end
 end
 
 describe package('curl') do
