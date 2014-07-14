@@ -40,3 +40,7 @@ end
 describe package('apache-tomcat') do
   it { should be_installed }
 end
+
+describe package('git-base') do
+  it { should be_installed }
+end
