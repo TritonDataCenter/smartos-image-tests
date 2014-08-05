@@ -9,3 +9,13 @@ if attr[:base_version].delete('.').to_i >= 1330
     it { should be_running }
   end
 end
+
+## zoneinit should be running
+describe service('zoneinit') do
+	it { should be_running }
+end
+
+## mdata should be running
+describe service('mdata') do
+  it { should be_running }
+end
