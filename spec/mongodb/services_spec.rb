@@ -17,3 +17,10 @@ end
 describe command('quickbackup-mongodb backup') do
 	it { should return_exit_status 0 }
 end
+
+
+# Make sure mongodump works
+describe command('mongodump -uadmin -p$(mdata-get mongodb_pw)  -db admin') do
+  it { should return_exit_status 0 }
+end
+
