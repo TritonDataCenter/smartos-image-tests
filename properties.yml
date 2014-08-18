@@ -8,5 +8,5 @@ nginx-14.2.0:
   :version: 14.2.0
   :base_name: base64
   :base_version: 14.2.0
-  :doc_url: http://wiki.joyent.com/jpc2/PostgreSQL+Instance 
+  :doc_url: http://wiki.joyent.com/jpc2/Nginx+Instance 
 
