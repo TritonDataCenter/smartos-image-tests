@@ -3,7 +3,7 @@ require 'spec_helper'
 ## Version specfiic tests
 #
 ## Since 13.3.1. See IMAGE-437
-if attr[:base_version].delete('.').to_i >= 1331
+if property[:base_version].delete('.').to_i >= 1331
   # Platform regression in 13.3.0. default locale was not set to "C"
   # See DATASET-940.
   describe file('/etc/default/init') do
@@ -25,7 +25,7 @@ end
 
 
 ## Since 13.3.0. See IMAGE-404
-if attr[:base_version].delete('.').to_i >= 1330
+if property[:base_version].delete('.').to_i >= 1330
   # See DATASET-937
   # datasets should ship with /etc/ipadm/ipadm.conf
   describe file('/etc/ipadm/ipadm.conf') do
@@ -73,7 +73,7 @@ if attr[:base_version].delete('.').to_i >= 1330
   #  See IMAGE-404
   #  rsyslog not built with mysql and pgsql support to prevent package conflicts
   # guardtime was removed in 14.2.0
-  if attr[:base_version].delete('.').to_i >= 1420
+  if property[:base_version].delete('.').to_i >= 1420
   	describe command('pkg_info -Q PKG_OPTIONS rsyslog') do
     	it { should return_stdout 'file libgcrypt solaris uuid' }
 		end	
@@ -114,7 +114,7 @@ end
 #  /etc/rsyslog.conf
 #  /etc/logadm.conf
 # Change default logadm cron schedule to hourly for more granularity (DATASET-735).
-if attr[:base_version].delete('.').to_i >= 1310
+if property[:base_version].delete('.').to_i >= 1310
   describe file('/var/log/authlog') do
   	it { should be_file }
   end

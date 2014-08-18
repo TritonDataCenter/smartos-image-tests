@@ -1,0 +1,12 @@
+# 14.2.0
+
+nginx-14.2.0:
+  :roles:
+    - base-common
+    - nginx 
+  :name: nginx 
+  :version: 14.2.0
+  :base_name: base64
+  :base_version: 14.2.0
+  :doc_url: http://wiki.joyent.com/jpc2/PostgreSQL+Instance 
+
