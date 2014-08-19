@@ -35,7 +35,7 @@ end
 
 ## Since 13.4.0
 # At some point pkgsrc came to their senses and used a sensible name for git
-if attr[:base_version].delete('.').to_i >= 1400
+if property[:base_version].delete('.').to_i >= 1400
   describe package('git') do
     it { should be_installed }
   end
@@ -47,7 +47,7 @@ if attr[:base_version].delete('.').to_i >= 1400
 end
 
 ## 13.3.1 and earlier
-if attr[:base_version].delete('.').to_i <= 1331
+if property[:base_version].delete('.').to_i <= 1331
   describe package('scmgit') do
     it { should be_installed }
   end
@@ -78,7 +78,7 @@ describe package ('ohai') do
 end
 
 ## Since 13.3.1
-if attr[:base_version].delete('.').to_i >= 1331
+if property[:base_version].delete('.').to_i >= 1331
 	describe package ('php55-zendoptimizerplus') do
   	it { should be_installed }
 	end

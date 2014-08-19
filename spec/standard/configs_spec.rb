@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 ## Since 13.2.1
-if attr[:base_version].delete('.').to_i >= 1321
+if property[:base_version].delete('.').to_i >= 1321
 	# Make sure PHP is enabled
 	describe file('/opt/local/etc/httpd/httpd.conf') do
   	it { should be_file }
