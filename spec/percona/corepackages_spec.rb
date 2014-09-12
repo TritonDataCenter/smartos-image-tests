@@ -28,14 +28,14 @@ describe package('quickbackup-percona') do
 end
 
 # Percona Xtrabackup package earlier than 13.4.2 
-if attr[:base_version].delete('.').to_i < 1342
+if property[:base_version].delete('.').to_i < 1342
   describe package('percona-xtrabackup') do
     it { should be_installed }
   end
 end
 
 # Percona Xtrabackup package for 13.4.2 
-if attr[:base_version].delete('.').to_i >= 1342
+if property[:base_version].delete('.').to_i >= 1342
   describe package('percona56-xtrabackup') do
     it { should be_installed }
   end
