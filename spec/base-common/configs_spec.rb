@@ -73,12 +73,16 @@ if property[:base_version].delete('.').to_i >= 1330
   #  See IMAGE-404
   #  rsyslog not built with mysql and pgsql support to prevent package conflicts
   # guardtime was removed in 14.2.0
-  if property[:base_version].delete('.').to_i >= 1420
+  version = property[:base_version].delete('.').to_i
+  
+  if version < 1430
   	describe command('pkg_info -Q PKG_OPTIONS rsyslog') do
     	it { should return_stdout 'file libgcrypt solaris uuid' }
 		end	
 
-	else
+  end
+  
+  if version < 1420
 		describe command('pkg_info -Q PKG_OPTIONS rsyslog') do
 			it { should return_stdout 'file guardtime libgcrypt solaris uuid' }	
 		end
