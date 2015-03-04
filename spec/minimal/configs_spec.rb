@@ -95,6 +95,7 @@ if property[:base_version].delete('.').to_i >= 1330
   # Bash auto-completion support for pkgin
   describe file('/etc/bash/bash_completion.d/pkg') do
     it { should be_file }
+    it { should match_md5checksum '056b06078621a401d4f81d3d1f0260fc' }
   end
 
   # See DATASET-837
