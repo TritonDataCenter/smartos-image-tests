@@ -1,12 +1,27 @@
-# 14.2.0
+# 14.4.0
 
-nginx-14.2.0:
+base-32-lts:
   :roles:
     - base-common
-    - nginx 
-  :name: nginx 
-  :version: 14.2.0
-  :base_name: base64
-  :base_version: 14.2.0
-  :doc_url: http://wiki.joyent.com/jpc2/Nginx+Instance 
+  :name: base-32-lts
+  :version: 14.4.0
+  :base_version: 14.4.0
+  :doc_url: https://docs.joyent.com/images/smartos/base
+
+base-64-lts:
+  :roles:
+    - base-common
+  :name: base-64-lts
+  :version: 14.4.0
+  :base_version: 14.4.0
+  :doc_url: https://docs.joyent.com/images/smartos/base
+
+base-multiarch-lts:
+  :roles:
+    - base-common
+  :name: base-multiarch-lts 
+  :version: 14.4.0
+  :base_version: 14.4.0
+  :doc_url: https://docs.joyent.com/images/smartos/base
+
 
