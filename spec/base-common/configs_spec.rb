@@ -130,7 +130,6 @@ if property[:base_version].delete('.').to_i >= 1310
   describe file('/etc/syslog.conf') do
   	it { should be_file }
     it { should contain "/var/log/authlog" }
-    it { should contain "/var/log/maillog" }
   end
 
   describe file('/etc/rsyslog.conf') do
@@ -146,5 +145,15 @@ if property[:base_version].delete('.').to_i >= 1310
 
   describe cron do
     it { should have_entry('10 * * * * /usr/sbin/logadm').with_user('root') }
+  end
+end
+
+# 2015-03-04
+# For newer releases we default to rsyslog. If we modify /etc/syslog.conf in anyway
+# the syslog init script checksum will fail, setting syslog as the default
+if property[:base_version].delete('.').to_i < 1440
+  describe file('/etc/syslog.conf') do
+  	it { should be_file }
+    it { should contain "/var/log/maillog" }
   end
 end
