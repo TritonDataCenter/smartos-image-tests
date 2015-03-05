@@ -1,0 +1,17 @@
+# 14.4.0
+
+base-32-lts:
+  :roles:
+    - base-common
+  :name: base-32-lts
+  :version: 14.4.0
+  :base_version: 14.4.0
+  :doc_url: https://docs.joyent.com/images/smartos/base
+
+base-64-lts:
+  :roles:
+    - base-common
+  :name: base-64-lts
+  :version: 14.4.0
+  :base_version: 14.4.0
+  :doc_url: https://docs.joyent.com/images/smartos/base
