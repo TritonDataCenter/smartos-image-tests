@@ -12,17 +12,17 @@ describe file('/opt/local/etc/elasticsearch/elasticsearch.yml') do
 end
 
 describe command ('UUID=$(zonename) && grep -q "cluster.name: ${UUID}" /opt/local/etc/elasticsearch/elasticsearch.yml') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end
 
 describe command ('PRIVATE_IP=$(mdata-get sdc:nics.1.ip) && grep -q "node.name: ${PRIVATE_IP}" /opt/local/etc/elasticsearch/elasticsearch.yml') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end
 
 describe command ('PRIVATE_IP=$(mdata-get sdc:nics.1.ip) && grep -q "network.host: ${PRIVATE_IP}" /opt/local/etc/elasticsearch/elasticsearch.yml') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end
 
 describe command ('grep -q "elastic" /etc/project') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end

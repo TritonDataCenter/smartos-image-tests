@@ -7,9 +7,9 @@ describe file('/home/ghost/ghost/config.js') do
 end
 
 describe command ('PUBLIC_IP=$(mdata-get sdc:nics.0.ip) && grep -q "url: \'http://${PUBLIC_IP}\'," /home/ghost/ghost/config.js') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end
 
 describe command ('PUBLIC_IP=$(mdata-get sdc:nics.0.ip) && grep -q "fromaddress: \'ghost@${PUBLIC_IP}\'," /home/ghost/ghost/config.js') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end

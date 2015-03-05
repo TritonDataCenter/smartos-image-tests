@@ -4,26 +4,26 @@ require 'spec_helper'
 
 ## MySQL
 describe command("mysql -uroot -p$(mdata-get mysql_pw) -e 'select version();' ") do
-	it { should return_exit_status 0 }
+	its(:exit_status) { should eq 0 }
 end
 
 ## Postgres
 
 # Need to enable the service first
 describe command('svcadm enable postgresql') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 	# Test login
 	describe command('PGPASSWORD="$(mdata-get pgsql_pw)" psql -U postgres -c "select version();"') do
-	   it { should return_exit_status 0 }
+	   its(:exit_status) { should eq 0 }
 	end
 end
 
 # Test login
 #describe command('PGPASSWORD="$(mdata-get pgsql_pw)" psql -U postgres -c "select version();"') do
-#  it { should return_exit_status 0 }
+#  its(:exit_status) { should eq 0 }
 #end
 
 # disable service
 describe command('svcadm disable postgresql') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end

@@ -6,5 +6,5 @@ describe file('/opt/local/share/cassandra/conf/cassandra.yaml') do
 end
 
 describe command ('ZONENAME=$(zonename) && grep -q "cluster_name: \'${ZONENAME}\'" /opt/local/share/cassandra/conf/cassandra.yaml') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end

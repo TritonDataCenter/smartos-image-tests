@@ -2,7 +2,7 @@ require 'spec_helper'
 
 # Make sure pkgin is updated first
 describe command('pkgin -y up') do
-  it { should return_exit_status 0 }
+  its(:exit_status) { should eq 0 }
 end
 
 ## Since 13.3.1. See IMAGE-448

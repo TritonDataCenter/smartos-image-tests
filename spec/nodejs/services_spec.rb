@@ -6,11 +6,11 @@ describe service('mongodb') do
 end
 
 describe command('mongostat -uadmin -p$(mdata-get mongodb_pw) -n1') do
-        it { should return_exit_status 0 }
+        its(:exit_status) { should eq 0 }
 end
 
 describe command('quickbackup-mongodb backup') do
-        it { should return_exit_status 0 }
+        its(:exit_status) { should eq 0 }
 end
 
 describe command('svcs -Ho state pkgsrc/mms-agent') do
