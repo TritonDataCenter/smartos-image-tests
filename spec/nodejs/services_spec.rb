@@ -14,9 +14,9 @@ describe command('quickbackup-mongodb backup') do
 end
 
 describe command('svcs -Ho state pkgsrc/mms-agent') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/quickbackup-mongodb') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end

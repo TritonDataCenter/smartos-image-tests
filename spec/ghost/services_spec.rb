@@ -6,9 +6,9 @@ describe service('postfix') do
 end
 
 describe command('svcs -Ho state pkgsrc/nginx') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state application/ghost') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end

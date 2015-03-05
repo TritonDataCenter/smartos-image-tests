@@ -77,14 +77,14 @@ if property[:base_version].delete('.').to_i >= 1330
   
   if version < 1430
   	describe command('pkg_info -Q PKG_OPTIONS rsyslog') do
-    	it { should return_stdout 'file libgcrypt solaris uuid' }
+    	its(:stdout) { should eq 'file libgcrypt solaris uuid' }
 		end	
 
   end
   
   if version < 1420
 		describe command('pkg_info -Q PKG_OPTIONS rsyslog') do
-			it { should return_stdout 'file guardtime libgcrypt solaris uuid' }	
+			its(:stdout) { should eq 'file guardtime libgcrypt solaris uuid' }	
 		end
 
   	# with  mysql and pgsql support, return value would be

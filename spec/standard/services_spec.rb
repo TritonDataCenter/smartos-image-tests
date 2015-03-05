@@ -16,37 +16,37 @@ describe service('postfix') do
 end
 
 describe command('svcs -Ho state pkgsrc/postgresql') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/php-fpm') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/nginx') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/memcached') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/chef-client') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/mailman') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/lighttpd') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/courier-imap') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end
 
 describe command('svcs -Ho state pkgsrc/courier-authlib') do
-  it { should return_stdout 'disabled' }
+  its(:stdout) { should eq 'disabled' }
 end

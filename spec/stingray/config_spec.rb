@@ -28,5 +28,5 @@ end
 
 # Make sure the license key name matches the one in the file
 describe command ('VAR1=$(basename $(ls -d /opt/local/stingray/zxtm/conf/licensekeys/*)); VAR2=$(grep "Serial Number" /opt/local/stingray/zxtm/conf/licensekeys/* | awk \'{ print $5 }\'); [[ "${VAR1}" = "${VAR2}" ]] && echo "YES" || echo "NO"') do
-  it { should return_stdout "YES" }
+  its(:stdout) { should eq "YES" }
 end
