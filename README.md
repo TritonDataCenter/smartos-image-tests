@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Overview
 
 These are the tests used to validate images before being released to the Joyent Public Cloud.
@@ -49,9 +48,4 @@ http://serverspec.org/tutorial.html
 There's a list of useful Resource Types here that you can use for testing:
 
 http://serverspec.org/resource_types.html
-=======
-smartos-image-tests
-===================
 
-Test suite for SmartOS machine images, tagged by pkgsrc version
->>>>>>> 5d7fffd62ee45e9a211b01734e4630fe0cf86ef7
