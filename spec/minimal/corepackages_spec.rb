@@ -15,6 +15,10 @@ describe package('mozilla-rootcerts') do
   it { should be_installed }
 end
 
+describe package('pkgsrc-gnupg-keys') do
+  it { should be_installed }
+end
+
 describe package('smtools') do
   it { should be_installed }
 end
