@@ -70,6 +70,12 @@ describe package('pkgsrc-gnupg-keys') do
   it { should be_installed }
 end
 
+if property[:version].delete('.').to_i == 1441
+  describe package('pkgsrc-gnupg-keys-20150416') do
+    it { should be_installed }
+  end
+end
+
 # Starting with 13.4.0, sdc-manta and sdc-smartdc are no longer installed by default. IMAGE-460.
 if property[:base_version].delete('.').to_i < 1340
 	describe package('sdc-manta') do
