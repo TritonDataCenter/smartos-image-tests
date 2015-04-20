@@ -34,13 +34,20 @@ end
 
 ## Common packages
 
+describe package('mozilla-rootcerts') do
+  it { should be_installed }
+end
+
 describe package('nodejs') do
   it { should be_installed }
 end
 
-describe package('mozilla-rootcerts') do
-  it { should be_installed }
+if property[:version].delete('.').to_i == 1441
+  describe package('nodejs-0.12.2') do
+    it { should be_installed }
+  end
 end
+
 
 describe package('openssl') do
   it { should be_installed }
