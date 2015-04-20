@@ -42,6 +42,14 @@ describe package('nodejs') do
   it { should be_installed }
 end
 
+describe package('mozilla-rootcerts') do
+  it { should be_installed }
+end
+
+describe package('openssl') do
+  it { should be_installed }
+end
+
 describe package('pkgsrc-gnupg-keys') do
   it { should be_installed }
 end
