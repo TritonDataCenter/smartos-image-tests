@@ -19,6 +19,12 @@ describe package('openssl') do
   it { should be_installed }
 end
 
+if property[:version].delete('.').to_i == 1441
+  describe package('openssl-1.0.1m') do
+    it { should be_installed }
+  end
+end
+
 describe package('pkgsrc-gnupg-keys') do
   it { should be_installed }
 end
