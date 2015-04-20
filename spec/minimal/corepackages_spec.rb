@@ -25,6 +25,10 @@ if property[:version].delete('.').to_i == 1441
   end
 end
 
+describe package('pkgin') do
+  it { should be_installed }
+end
+
 describe package('pkgsrc-gnupg-keys') do
   it { should be_installed }
 end
