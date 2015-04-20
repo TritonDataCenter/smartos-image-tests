@@ -6,7 +6,6 @@ describe file('/etc/product') do
   it { should be_file }
   it { should contain "Name: Joyent Instance" }
   it { should contain "Image: #{property[:name]} #{property[:version]}"  }
-  it { should contain "Base Image: #{property[:base_name]} #{property[:base_version]}"  }
   it { should contain "Documentation: #{property[:doc_url]}" }
 end
 
