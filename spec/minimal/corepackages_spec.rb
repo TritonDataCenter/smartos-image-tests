@@ -50,6 +50,12 @@ describe package('smtools') do
   it { should be_installed }
 end
 
+if property[:version].delete('.').to_i == 1441
+  describe package('smtools-20150312') do
+    it { should be_installed }
+  end
+end
+
 describe package('zoneinit') do
   it { should be_installed }
 end
