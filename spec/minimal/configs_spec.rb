@@ -26,6 +26,9 @@ if property[:name] =~ /minimal-/
     it { should_not contain "webservd" }
     it { should_not contain "postgres" }
   end
+  describe file('/etc/user_attr') do
+    it { should_not contain "lp" }
+  end
 end
 
 # Ensure SDC-specific root cron is removed from seed image
