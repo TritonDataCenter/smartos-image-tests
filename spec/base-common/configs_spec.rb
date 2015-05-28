@@ -1,5 +1,33 @@
 require 'spec_helper'
 
+# Ensure base and minimal images are not pre-populated with
+# lp, gdm, openldap, webservd, postgres users
+# Skip this test for images base on base or minimal
+# e.g., a postgres image should be exempt from these tests
+if property[:name] =~ /base-/
+  describe file('/etc/passwd') do
+    it { should_not contain "lp" }
+    it { should_not contain "gdm" }
+    it { should_not contain "openldap" }
+    it { should_not contain "webservd" }
+    it { should_not contain "postgres" }
+  end
+  describe file('/etc/shadow') do
+    it { should_not contain "lp" }
+    it { should_not contain "gdm" }
+    it { should_not contain "openldap" }
+    it { should_not contain "webservd" }
+    it { should_not contain "postgres" }
+  end
+  describe file('/etc/group') do
+    it { should_not contain "lp" }
+    it { should_not contain "gdm" }
+    it { should_not contain "openldap" }
+    it { should_not contain "webservd" }
+    it { should_not contain "postgres" }
+  end
+end
+
 ## Version specfiic tests
 #
 ## Since 13.3.1. See IMAGE-437
