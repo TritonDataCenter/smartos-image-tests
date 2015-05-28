@@ -28,6 +28,11 @@ if property[:name] =~ /minimal-/
   end
 end
 
+# Ensure SDC-specific root cron is removed from seed image
+describe command('ls /etc/cron.d/crontabs/root') do
+	its(:stderr) { should match /No such file or directory/ }
+end
+
 ## Version specfiic tests
 #
 ## Since 13.3.1. See IMAGE-437
