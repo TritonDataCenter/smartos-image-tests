@@ -3,22 +3,22 @@ require 'spec_helper'
 # This test requires a VM to be provision with two IPs, preferably one public
 # and one private.
 
-# Test to ensure the VM has two interfaces, eth0 and eth1
+# Test to ensure the VM has two interfaces, net0 and net1
 
-# eth0
-describe interface('eth0') do
-  it { should exist }
+# net0
+describe command('ifconfig net0') do
+  its(:exit_status) { should eq 0 }
 end
 
-describe interface('eth0') do
-  it { should be_up }
+describe command('dladm show-link net0 -o STATE -p') do
+  its(:stdout) { should match /up/ }
 end
 
-# eth1
-describe interface('eth1') do
-  it { should exist }
+# net1
+describe command('ifconfig net1') do
+  its(:exit_status) { should eq 0 }
 end
 
-describe interface('eth1') do
-  it { should be_up }
+describe command('dladm show-link net1 -o STATE -p') do
+  its(:stdout) { should match /up/ }
 end
