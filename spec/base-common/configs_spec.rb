@@ -79,7 +79,7 @@ if property[:base_version].delete('.').to_i >= 1330
   	it { should be_file }
     it { should be_mode 755 }
     it { should contain "ipadm set-prop -p send_maxbuf=128000 tcp" }
-    it { should contain "padm set-prop -p recv_maxbuf=1048576 tcp" }
+    it { should contain "ipadm set-prop -p recv_maxbuf=1048576 tcp" }
   end
 
   # See IMAGE-404
