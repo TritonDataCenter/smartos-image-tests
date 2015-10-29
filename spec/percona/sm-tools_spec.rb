@@ -14,4 +14,14 @@ describe command('sm-list-dbs') do
   its(:stderr) { should match /Usage: \/opt\/local\/bin\/sm-list-dbs [options] TYPE/ }
 end
 
+# sm-list-dbusers
 
+describe command('sm-list-dbusers mysql') do
+  its(:stdout) { should match /Listing MySQL users/ }
+  its(:exit_status) { should eq 0 }
+end
+
+describe command('sm-list-dbusers') do
+  its(:exit_status) { should eq 2 }
+  its(:stderr) { should match /Usage: \/opt\/local\/bin\/sm-list-dbusers [options] TYPE/ }
+end
