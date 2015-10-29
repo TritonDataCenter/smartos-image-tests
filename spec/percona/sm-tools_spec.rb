@@ -78,3 +78,24 @@ describe command('sm-remove-db') do
   its(:exit_status) { should eq 2 }
 end
 
+# sm-tune-mysql
+
+describe command('sm-tune-mysql') do
+  its(:stdout) { should match /\* * Tuning MySQL, this can take up to 60 seconds../ }
+  its(:exit_status) { should eq 0 }
+end
+
+## Test tune config
+
+### Disable percona service first so we don't have any conflicts
+describe command('svcadm disable percona') do
+  its(:exit_status) { should eq 0 }
+end
+
+describe command('mysqld --help --verbose --defaults-file=/opt/local/etc/my.cnf.tuned') do
+  its(:exit_status) { should eq 0 }
+end
+
+describe command('svcadm enable percona') do
+  its(:exit_status) { should eq 0 }
+end
