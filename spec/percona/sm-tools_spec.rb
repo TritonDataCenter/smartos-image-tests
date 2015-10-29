@@ -40,5 +40,17 @@ end
 
 describe command('sm-create-db') do
   its(:exit_status) { should eq 2 }
-  its(:stderr) { should match /Usage: \/opt\/local\/bin\/sm-list-dbusers [options] TYPE DATABASE/ }
+  its(:stderr) { should match /Usage: \/opt\/local\/bin\/sm-create-db [options] TYPE DATABASE/ }
+end
+
+# sm-remove-db
+
+describe command('sm-remove-db mysql testdb') do
+  its(:stdout) { should match /\* Removed MySQL database testdb./ }
+  its(:exit_status) { should eq 0 }
+end
+
+describe command('sm-remove-db') do
+  its(:exit_status) { should eq 2 }
+  its(:stderr) { should match /Usage: \/opt\/local\/bin\/sm-remove-db [options] TYPE DATABASE/ }
 end
