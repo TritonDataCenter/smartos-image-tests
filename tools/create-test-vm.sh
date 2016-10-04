@@ -21,7 +21,6 @@ exit 1
 }
 
 IMAGE=
-PACKAGE=
 IMAGENAME=
 VERSION=
 OS=
