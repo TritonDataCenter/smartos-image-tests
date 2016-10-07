@@ -173,7 +173,7 @@ $NAME:
   :name: $PROPER_NAME
   :version: $VERSION
   :base_version: $VERSION
-  :doc_url: https://docs.joyent.com/images/container-native-linux
+  :doc_url: https://docs.joyent.com/images/smartos/minimal
 PROPYML
 
     TARGET_HOST_NAME=$(triton -p ${PROFILE} instance ip $NAME) \
