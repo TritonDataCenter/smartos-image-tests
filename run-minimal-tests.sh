@@ -33,7 +33,7 @@ This script will:
         
     Example:
     
-        $0 -i 9d58adc6-499b-11e6-9ea7-437c859dc16b -p us-east-3b -n "minimal-64" -d "A 64-bit SmartOS image with just bootstrap packages installed. Ideal for users who want the smallest possible image upon which to build."
+        $0 -i 9d58adc6-499b-11e6-9ea7-437c859dc16b -p us-east-3b -n "minimal-64"
         
     Options:
     
@@ -42,8 +42,6 @@ This script will:
            CLI tool setup with your desired profile.
         -n The name of the image. This is the proper name found in the 
            /etc/motd and /etc/product files. Should be in quotes.
-        -d The description of the image, typically found in the manifest and
-           /etc/product file. Should be in quotes.
         -h Show this message
 
 EOF
@@ -53,7 +51,6 @@ exit 1
 IMAGE=
 PROFILE=
 PROPER_NAME=
-DESC=
 PACKAGE=
 IMAGENAME=
 VERSION=
@@ -64,7 +61,7 @@ UUID=
 SCRIPT=$PWD/userscript.sh
 METADATAFILE="user-data=$PWD/user-data"
 
-while getopts “hi:p:n:d:” OPTION
+while getopts “hi:p:n:” OPTION
 do
   case $OPTION in
     h)
@@ -80,9 +77,6 @@ do
     n)
       PROPER_NAME=$OPTARG
       ;;
-    d)
-      DESC=$OPTARG
-      ;;
     ?)
       usage
       exit
@@ -90,7 +84,7 @@ do
   esac
 done
 
-if [[ -z $IMAGE ]] || [[ -z $PROFILE ]] || [[ -z $PROPER_NAME ]] || [[ -z $DESC ]]; then
+if [[ -z $IMAGE ]] || [[ -z $PROFILE ]] || [[ -z $PROPER_NAME ]]; then
     usage
     exit 1
 fi
@@ -177,7 +171,7 @@ $NAME:
   :roles:
     - minimal
   :name: $PROPER_NAME
-  :description: $DESC
+  :version: $VERSION
   :base_version: $VERSION
   :doc_url: https://docs.joyent.com/images/container-native-linux
 PROPYML
