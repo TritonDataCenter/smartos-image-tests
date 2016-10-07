@@ -23,17 +23,16 @@ set_property properties[host]
 
 options = Net::SSH::Config.for(host)
 
-options[:user] ||= Etc.getlogin
-
 set :host,        options[:host_name] || host
+
+# Get HostName and User value from Env Vars if available
+# This will override options in ~/.ssh/config or /etc/ssh_config
+options[:host_name] ||= ENV['TARGET_HOST_NAME']
+options[:user] ||= ENV['TARGET_USER_NAME']
+
 set :ssh_options, options
 
-# Disable sudo
-# set :disable_sudo, true
+# Don't save hosts to ~/.ssh/known_hosts
+# When testing it's very common for the IPs to get reused and cause a mismatch
+set :user_known_hosts_file, '/dev/null'
 
-
-# Set environment variables
-# set :env, :LANG => 'C', :LC_MESSAGES => 'C' 
-
-# Set PATH
-# set :path, '/sbin:/usr/local/sbin:$PATH'
