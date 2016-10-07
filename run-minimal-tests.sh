@@ -178,7 +178,7 @@ $NAME:
     - minimal
   :name: $PROPER_NAME
   :description: $DESC
-  :version: $VERSION
+  :base_version: $VERSION
   :doc_url: https://docs.joyent.com/images/container-native-linux
 PROPYML
 
