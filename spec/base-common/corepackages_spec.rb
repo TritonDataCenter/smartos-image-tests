@@ -1,10 +1,5 @@
 require 'spec_helper'
 
-# Make sure pkgin is updated first
-describe command('pkgin -y up') do
-  its(:exit_status) { should eq 0 }
-end
-
 ## Since 13.3.1. See IMAGE-437
 if property[:base_version].delete('.').to_i >= 1331
   # wget package now preinstalled (works around the problem where the OS wget wasn't
