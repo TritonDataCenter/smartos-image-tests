@@ -42,17 +42,9 @@ describe package('nodejs') do
   it { should be_installed }
 end
 
-if property[:version].delete('.').to_i == 1441
-  describe package('nodejs-0.12.2') do
-    it { should be_installed }
-  end
-end
-
-
 describe package('openssl') do
   it { should be_installed }
 end
-
 
 describe package('pkgin') do
   it { should be_installed }
