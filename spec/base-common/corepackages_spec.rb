@@ -63,12 +63,6 @@ describe package('pkgin') do
   it { should be_installed }
 end
 
-if property[:version].delete('.').to_i == 1441
-  describe package('pkgin-0.8.0') do
-    it { should be_installed }
-  end
-end
-
 describe package('pkgsrc-gnupg-keys') do
   it { should be_installed }
 end
