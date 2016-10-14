@@ -5,15 +5,6 @@ describe command('pkgin -y up') do
   its(:exit_status) { should eq 0 }
 end
 
-## For 13.4.1 only. See IMAGE-476
-if property[:base_version].delete('.').to_i == 1341
-	# OpenSSL was patched to adddres the Heartbleed bug.
-  describe package('openssl-1.0.1fnb1') do
-  it { should be_installed }
-  end
-end
-
-
 ## Since 13.3.1. See IMAGE-437
 if property[:base_version].delete('.').to_i >= 1331
   # wget package now preinstalled (works around the problem where the OS wget wasn't
