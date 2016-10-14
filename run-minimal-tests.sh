@@ -159,6 +159,7 @@ wait_for_IP() {
         echo -n "."
         ping -c1 $(triton -p ${PROFILE} instance ip $NAME) > /dev/null && break;
     done
+    sleep 5
     echo ""
     echo "IP is now live."
 }
