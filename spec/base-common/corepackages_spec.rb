@@ -100,20 +100,6 @@ if property[:version].delete('.').to_i == 1441
   end
 end
 
-# Guardtime removed in 14.2.0 release
-if property[:base_version].delete('.').to_i < 1420
-	describe package('guardtime') do
-  	it { should be_installed }
-	end
-end
-
-# duo-unix removed in 14.2.0 release
-if property[:base_version].delete('.').to_i < 1420
-	describe package('duo-unix') do
-  	it { should be_installed }
-	end
-end
-
 describe package('curl') do
   it { should be_installed }
 end
