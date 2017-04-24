@@ -19,3 +19,9 @@ end
 describe command('find /var -user 1000 -ls | grep 1000') do
   its(:exit_status) { should eq 1 }
 end
+
+# DATASET-1299: "/root" should always be mode 700 by default.
+describe file('/root') do
+  it { should be_directory }
+  it { should be_mode 700 }
+end
